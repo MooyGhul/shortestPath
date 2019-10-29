@@ -1,13 +1,25 @@
 package Project;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Dijkastra {
+
+    LinkedList<Integer> path = new LinkedList<>();
 
     // The default value for a boolean (primitive) is false
     boolean[] visitedNode;
     //distance used to store the distance of vertex from a source
     double[] dist_from_source;
+
+    void printLinkedList(LinkedList<Integer> ll){
+        for (int i = 0; i < ll.size()-1; i++) {
+
+            System.out.print(ll.get(i) +"-->");
+        }
+        System.out.print(ll.get(ll.size()-1));
+        System.out.println();
+    }
 
     double visit(Graph_Node source, Graph_Node target, Graph graph){
         visitedNode = new boolean[1001];
@@ -27,10 +39,14 @@ public class Dijkastra {
         while(pq.size()>0){
             Pair<Graph_Node,Double> curr = pq.remove();
             Graph_Node currNode = curr.getNode();
-            System.out.println("*** The least dist node is "+ currNode.getIndex()+" *****");
+            //System.out.println("*** The least dist node is "+ currNode.getIndex()+" *****");
             visitedNode[currNode.getIndex()] = true;
+            path.add(currNode.getIndex());
 
             if(currNode.getIndex()==target.getIndex()){
+
+                printLinkedList(path);
+
                 return dist_from_source[currNode.getIndex()];
             }
 
@@ -39,42 +55,44 @@ public class Dijkastra {
             for(int i = 0; i<currList.size(); i++) {
                 int num_node = currList.get(i);
                 //System.out.println("Node number is "+num_node +" is " + visitedNode[863]);
-                System.out.println("---"+ i +"---" + num_node);
+                //System.out.println("---"+ i +"---" + num_node);
                 if (visitedNode[num_node] != true) {
-                    System.out.println("Node number is "+num_node +"The Node is visited? "+visitedNode[num_node]);
+                    //System.out.println("Node number is "+num_node +"The Node is visited? "+visitedNode[num_node]);
 
                     double new_dist = Graph.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
                     boolean first_visit;
                     if(dist_from_source[num_node]==Double.MAX_VALUE){
-                        System.out.println("first visit " + num_node + " is true");
+                        //System.out.println("first visit " + num_node + " is true");
                         first_visit = true;
                     }else{
-                        System.out.println("first visit " + num_node + " is false");
+                        //System.out.println("first visit " + num_node + " is false");
                         first_visit = false;
                     }
-                    System.out.println("new_dist: " + new_dist);
-                    System.out.println("dist_from_source: " + dist_from_source[num_node]);
+                    //System.out.println("new_dist: " + new_dist);
+                    //System.out.println("dist_from_source: " + dist_from_source[num_node]);
 
                     if(new_dist<dist_from_source[num_node]){
-                        System.out.println("SHOULD HAVE SOMETHING HERE");
+                        //System.out.println("SHOULD HAVE SOMETHING HERE");
 
                         dist_from_source[num_node]= new_dist;
                         Pair<Graph_Node,Double> newPair = new Pair<>(nodes[num_node],dist_from_source[num_node]);
 
                         if(first_visit ==true){
-                            //System.out.println("first visit is true");
+                            //System.out.println("Node "+ num_node +"need to get INSERTED");
                             pq.insert(newPair);
-                            System.out.println("Node "+ num_node +"is INSERTED");
+                            //System.out.println("Node "+ num_node +"is INSERTED");
                         }else{
-                            //System.out.println("first visit is false");
+                            //System.out.println("Node "+ num_node +"need to get UPDATED");
                             pq.update(newPair.getNode().getIndex(),newPair.getDistance());
-                            System.out.println("Node "+ num_node +"is UPDATED");
+                            //System.out.println("Node "+ num_node +"is UPDATED");
                         }
 
                     }
                 }
             }
         }
+
+
 
         return -1;
     }

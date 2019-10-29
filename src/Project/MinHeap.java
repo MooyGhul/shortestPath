@@ -63,6 +63,7 @@ public class MinHeap {
     }
 
     private void upHeapify(int pos){
+        //System.out.println("upHeapify: " + pos);
         if( pos!=FRONT){
             if (Heap[pos].getDistance() < Heap[parent(pos)].getDistance()){
                 swap(pos, parent(pos));
@@ -87,13 +88,14 @@ public class MinHeap {
     }
 
     public void update(int index, double new_dist){
-        for(int i =0; i<=size; i++){
+        int i;
+        for(i =0; i<=size; i++){
             if(Heap[i].getNode().getIndex()==index){
                 Heap[i].setDistance(new_dist);
                 break;
             }
         }
-        upHeapify(index);
+        upHeapify(i);
     }
 
     /********************************************
