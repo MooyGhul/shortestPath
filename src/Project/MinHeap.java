@@ -98,6 +98,9 @@ public class MinHeap {
         upHeapify(i);
     }
 
+    public Pair<Graph_Node,Double> peek(){
+        return Heap[FRONT];
+    }
     /********************************************
     void MinHeap::decreaseKey(int i, int new_val)
     {

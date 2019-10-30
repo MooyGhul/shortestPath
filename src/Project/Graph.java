@@ -12,7 +12,11 @@ public class Graph {
 
     List<Integer>[] adjacent_List;
 
-
+    /** this part is for test **/
+    public Graph(){
+        nodes = new Graph_Node[1001];
+        adjacent_List= new List[1001];
+    }
 
     public Graph(URL urlfile){
         nodes = new Graph_Node[1001];

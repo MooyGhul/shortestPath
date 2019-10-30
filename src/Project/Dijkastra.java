@@ -1,17 +1,17 @@
 package Project;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class Dijkastra {
 
-    LinkedList<Integer> path = new LinkedList<>();
+    //LinkedList<Integer> path = new LinkedList<>();
 
     // The default value for a boolean (primitive) is false
     boolean[] visitedNode;
     //distance used to store the distance of vertex from a source
     double[] dist_from_source;
 
+    /*
     void printLinkedList(LinkedList<Integer> ll){
         for (int i = 0; i < ll.size()-1; i++) {
 
@@ -20,11 +20,16 @@ public class Dijkastra {
         System.out.print(ll.get(ll.size()-1));
         System.out.println();
     }
+    */
 
-    double visit(Graph_Node source, Graph_Node target, Graph graph){
+    double visit(Graph graph, Graph_Node source, Graph_Node target){
         visitedNode = new boolean[1001];
         dist_from_source = new double[1001];
         Graph_Node[] nodes = graph.getNodes();
+        for(int i =1;i<=1000;i++){
+            nodes[i].setPath(new StringBuilder());
+        }
+        source.setPath(new StringBuilder( Integer.toString(source.getIndex())+"-->"));
 
         //Initialize all the distance to infinity
         for (int i = 0; i <1001 ; i++) {
@@ -34,6 +39,7 @@ public class Dijkastra {
         dist_from_source[source.getIndex()] = 0.0;
 
         MinHeap pq = new MinHeap(1001);
+        source.setPath(new StringBuilder( Integer.toString(source.getIndex())+"-->"));
         pq.insert(new Pair<Graph_Node,Double>(source,0.0));
 
         while(pq.size()>0){
@@ -41,11 +47,13 @@ public class Dijkastra {
             Graph_Node currNode = curr.getNode();
             //System.out.println("*** The least dist node is "+ currNode.getIndex()+" *****");
             visitedNode[currNode.getIndex()] = true;
-            path.add(currNode.getIndex());
+            //path.add(currNode.getIndex());
 
             if(currNode.getIndex()==target.getIndex()){
+                int pathlength = currNode.getPath().length();
+                System.out.println(currNode.getPath().delete(pathlength-3,pathlength));
 
-                printLinkedList(path);
+                //printLinkedList(path);
 
                 return dist_from_source[currNode.getIndex()];
             }
@@ -79,10 +87,12 @@ public class Dijkastra {
 
                         if(first_visit ==true){
                             //System.out.println("Node "+ num_node +"need to get INSERTED");
+                            nodes[num_node].setPath((new StringBuilder(currNode.getPath())).append(Integer.toString(num_node) + "-->"));
                             pq.insert(newPair);
                             //System.out.println("Node "+ num_node +"is INSERTED");
                         }else{
                             //System.out.println("Node "+ num_node +"need to get UPDATED");
+                            nodes[num_node].setPath((new StringBuilder(currNode.getPath())).append(Integer.toString(num_node) + "-->"));
                             pq.update(newPair.getNode().getIndex(),newPair.getDistance());
                             //System.out.println("Node "+ num_node +"is UPDATED");
                         }

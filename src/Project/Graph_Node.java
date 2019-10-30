@@ -4,6 +4,9 @@ public class Graph_Node {
     private int index;
     private Double lon;
     private Double lat;
+    private StringBuilder path;
+
+
 
     void setIndex(int index) {
         this.index = index;
@@ -30,5 +33,13 @@ public class Graph_Node {
         return lat;
     }
 
+
+    StringBuilder getPath() {
+        return this.path;
+    }
+
+    void setPath(StringBuilder sb) {
+        this.path=sb;
+    }
 
 }
