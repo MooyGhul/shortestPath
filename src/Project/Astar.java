@@ -58,7 +58,7 @@ public class Astar {
             int index_curr = curr_pair.getNode().getIndex();
 
 
-            if(index_curr==388 ){
+    /*        if(index_curr==388 ){
                 System.out.println(index_curr + " is successfully popped");
                 //System.out.println("Weight of "+ index_curr +" is "+ curr_pair.getDistance());
                 //System.out.println("Distance from source of "+ index_curr +" is "+ dist_from_source[index_curr]);
@@ -69,7 +69,7 @@ public class Astar {
                 }
                 System.out.println();
             }
-
+    */
             //System.out.println("Here is the Node : " + index_curr + " with distance " + Tool.df2.format(curr_pair.getDistance()));
 
             if(index_curr==dest.getIndex()){
@@ -88,11 +88,11 @@ public class Astar {
             for(int i = 0; i<currList.size(); i++) {
 
                 int num_node = currList.get(i);
-
+    /*
                 if(index_curr==388) {
                     System.out.println("______" + num_node + "______");
                 }
-                /*
+    */            /*
                 if(index_curr == 388){
                     System.out.println("From 388 we traverse node "+ num_node);
                 }
@@ -112,7 +112,7 @@ public class Astar {
                     }
                     */
                     double the_dist = Graph.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
-
+        /*
                     if(index_curr==388) {
                         System.out.println("visitedNode[num_node]!= true");
                         System.out.println("388 from source"+dist_from_source[currNode.getIndex()]);
@@ -120,7 +120,7 @@ public class Astar {
                         System.out.println(num_node +"->480 : " + Graph.cal_distance(nodes[num_node], dest));
 
                     }
-
+        */
                     dist_from_source[num_node]=the_dist;
 
                     Double dist_from_target= Graph.cal_distance(nodes[num_node], dest);

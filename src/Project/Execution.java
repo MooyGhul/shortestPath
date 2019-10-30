@@ -17,7 +17,7 @@ public class Execution {
             Graph graph = new Graph(urlfile);
 
             Graph_Node source = graph.getNodes()[1];
-            Graph_Node target = graph.getNodes()[480];
+            Graph_Node target = graph.getNodes()[5];
 
             System.out.println("---------------- DIJKSTRA ----------------");
             Dijkastra dijkastra= new Dijkastra();
@@ -33,8 +33,8 @@ public class Execution {
             System.out.println("Node 388: " + dijkastra.dist_from_source[388]);
             System.out.println("Node 480: " + dijkastra.dist_from_source[480]);
             */
-            System.out.println("Node 388: " + dijkastra.dist_from_source[388]);
-            System.out.println("Node 384: " + dijkastra.dist_from_source[384]);
+    //        System.out.println("Node 388: " + dijkastra.dist_from_source[388]);
+    //        System.out.println("Node 384: " + dijkastra.dist_from_source[384]);
             /*
 
             System.out.println("Node 414: " + dijkastra.dist_from_source[414]);
@@ -63,7 +63,8 @@ public class Execution {
             System.out.println("Node 862: " + astar.dist_from_source[862]);
             System.out.println("Node 15: " + astar.dist_from_source[15]);
             */
-            System.out.println("Node 388: " + astar.dist_from_source[388]);
+
+    //        System.out.println("Node 388: " + astar.dist_from_source[388]);
             //System.out.println("Node 480: " + astar.dist_from_source[480]);
 
 
@@ -131,7 +132,7 @@ public class Execution {
             System.out.println("864-856: "+Tool.df2.format(Graph.cal_distance(graph.getNodes()[864], graph.getNodes()[856])));
             */
 
-            double edge1=Graph.cal_distance(graph.getNodes()[1], graph.getNodes()[864]);
+    /*        double edge1=Graph.cal_distance(graph.getNodes()[1], graph.getNodes()[864]);
             double edge2=Graph.cal_distance(graph.getNodes()[864], graph.getNodes()[863]);
             double edge3=Graph.cal_distance(graph.getNodes()[863], graph.getNodes()[856]);
             double edge4=Graph.cal_distance(graph.getNodes()[856], graph.getNodes()[862]);
@@ -173,7 +174,7 @@ public class Execution {
             System.out.println("SUM EDGE="+sum);
             System.out.println(sum==shortestPath);
 
-
+    */
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
