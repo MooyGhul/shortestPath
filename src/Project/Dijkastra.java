@@ -67,7 +67,7 @@ public class Dijkastra {
                 if (visitedNode[num_node] != true) {
                     //System.out.println("Node number is "+num_node +"The Node is visited? "+visitedNode[num_node]);
 
-                    double new_dist = Graph.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
+                    double new_dist = Tool.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
                     boolean first_visit;
                     if(dist_from_source[num_node]==Double.MAX_VALUE){
                         //System.out.println("first visit " + num_node + " is true");

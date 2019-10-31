@@ -56,6 +56,11 @@ public class Execution {
             Astar astar = new Astar();
             System.out.println("Distance = "+ Tool.df2.format(astar.visit(graph,source,target)));
 
+
+            System.out.println("--------------- A* landmark ----------------");
+
+            AStarWithLandmark alandmark = new AStarWithLandmark();
+            System.out.println("Distance = "+ Tool.df2.format(alandmark.visit(graph,source,target)));
             /*
             System.out.println("Node 864: " + astar.dist_from_source[864]);
             System.out.println("Node 863: " + astar.dist_from_source[863]);
@@ -175,6 +180,17 @@ public class Execution {
             System.out.println(sum==shortestPath);
 
     */
+
+
+
+            /*  //four extreme nodes
+            System.out.println("low lat: "+landmark.getNode_low_lat().getLat()+ ", " +landmark.getNode_low_lat().getLon() );
+            System.out.println("high lat: "+landmark.getNode_high_lat().getLat()+ ", " + landmark.getNode_high_lat().getLon());
+            System.out.println("low lon: "+landmark.getNode_low_lon().getLat()+ ", " + landmark.getNode_low_lon().getLon());
+            System.out.println("high lon: "+landmark.getNode_high_lon().getLat()+ ", " + landmark.getNode_high_lon().getLon());
+            */
+
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

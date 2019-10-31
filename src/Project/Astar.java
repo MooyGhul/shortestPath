@@ -47,7 +47,7 @@ public class Astar {
 
         MinHeap pq = new MinHeap(1001);
         source.setPath(new StringBuilder( Integer.toString(source.getIndex())+"-->"));
-        pq.insert(new Pair<>(source, Graph.cal_distance(source, dest)));
+        pq.insert(new Pair<>(source, Tool.cal_distance(source, dest)));
 
 
         while(pq.size()>0){
@@ -111,7 +111,7 @@ public class Astar {
                         System.out.println("pathNode[480]="+pathNode[480]);
                     }
                     */
-                    double the_dist = Graph.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
+                    double the_dist = Tool.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
         /*
                     if(index_curr==388) {
                         System.out.println("visitedNode[num_node]!= true");
@@ -123,7 +123,7 @@ public class Astar {
         */
                     dist_from_source[num_node]=the_dist;
 
-                    Double dist_from_target= Graph.cal_distance(nodes[num_node], dest);
+                    Double dist_from_target= Tool.cal_distance(nodes[num_node], dest);
 
                     //System.out.println("DISTANCE BTW "+ currNode.getIndex() +" AND "+ num_node +" is "+ Tool.df2.format(the_dist));
                     //System.out.println("DISTANCE BTW "+ dest.getIndex() +" AND "+ num_node +" is "+ Tool.df2.format(dist_from_target));
@@ -139,10 +139,10 @@ public class Astar {
                         System.out.println("visitedNode[num_node]== true");
                     }
 
-                    double the_dist = Graph.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
+                    double the_dist = Tool.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
                     if (the_dist<dist_from_source[num_node]){
                         dist_from_source[num_node]=the_dist;
-                        Double dist_from_target= Graph.cal_distance(nodes[num_node], dest);
+                        Double dist_from_target= Tool.cal_distance(nodes[num_node], dest);
                         double overall_distance = dist_from_source[num_node] + dist_from_target;
                         /*
                         if(num_node==480){
