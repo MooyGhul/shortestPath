@@ -43,10 +43,9 @@ public class AStarWithLandmark {
 
             if(index_curr==dest.getIndex()){
                 int pathlength = curr_pair.getNode().getPath().length();
-                System.out.println(curr_pair.getNode().getPath().delete(pathlength-3,pathlength));
+//                System.out.println(curr_pair.getNode().getPath().delete(pathlength-3,pathlength));
                 return dist_from_source[index_curr];
             }
-            //System.out.println("The node ** "+ index_curr + " ** is removed from pq");
             Graph_Node currNode = curr_pair.getNode();
             pathNode[index_curr]=true;
 
@@ -72,10 +71,6 @@ public class AStarWithLandmark {
                     pq.insert(newPair);
                 }else if(pathNode[num_node] != true){
 
-                    if(index_curr==388) {
-                        System.out.println("visitedNode[num_node]== true");
-                    }
-
                     double the_dist = Tool.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
                     if (the_dist<dist_from_source[num_node]){
                         dist_from_source[num_node]=the_dist;
@@ -86,9 +81,6 @@ public class AStarWithLandmark {
                         pq.update(num_node,overall_distance);
                     }
                 }
-
-
-
             }
         }
         return -1.0;

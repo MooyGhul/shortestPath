@@ -63,7 +63,6 @@ public class MinHeap {
     }
 
     private void upHeapify(int pos){
-        //System.out.println("upHeapify: " + pos);
         if( pos!=FRONT){
             if (Heap[pos].getDistance() < Heap[parent(pos)].getDistance()){
                 swap(pos, parent(pos));
@@ -101,21 +100,6 @@ public class MinHeap {
     public Pair<Graph_Node,Double> peek(){
         return Heap[FRONT];
     }
-    /********************************************
-    void MinHeap::decreaseKey(int i, int new_val)
-    {
-        harr[i] = new_val;
-        while (i != 0 && harr[parent(i)] > harr[i])
-        {
-           swap(&harr[i], &harr[parent(i)]);
-           i = parent(i);
-        }
-    }
-     **********************************************/
-
-
-
-
 
     public Pair<Graph_Node,Double> remove()
     {

@@ -16,7 +16,6 @@ public class Graph_Node {
         return index;
     }
 
-
     void setLon(Double lon) {
         this.lon = lon;
     }
@@ -32,7 +31,6 @@ public class Graph_Node {
     Double getLat() {
         return lat;
     }
-
 
     StringBuilder getPath() {
         return this.path;
