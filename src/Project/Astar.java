@@ -75,10 +75,6 @@ public class Astar {
                     pq.insert(newPair);
                 }else if(pathNode[num_node] != true){
 
-                    if(index_curr==388) {
-                        System.out.println("visitedNode[num_node]== true");
-                    }
-
                     double the_dist = Tool.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
                     if (the_dist<dist_from_source[num_node]){
                         dist_from_source[num_node]=the_dist;
