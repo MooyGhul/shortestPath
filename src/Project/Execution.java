@@ -50,7 +50,7 @@ public class Execution {
                 System.out.println("Round "+ i +" is "+ ((d_shortestPath==a_shortestPath)==(a_shortestPath==l_shortestPath)) );
 
                 System.out.println("Dijkastra visited: "+dijkastra.visitedNodeCounter + " , Astar visited: "+astar.visitedNodeCounter +" , LandMark Visited "+alandmark.visitedNodeCounter);
-
+                // why i cannot push it to github
 
             }
 
