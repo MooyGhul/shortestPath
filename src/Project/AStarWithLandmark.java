@@ -14,7 +14,7 @@ public class AStarWithLandmark {
     int visitedNodeCounter=1;
 
     double visit(Graph graph, Graph_Node source, Graph_Node dest){
-        Landmark landmark = new Landmark(graph.nodes);
+        Landmark landmark = new Landmark(graph.nodes, graph);
 
         pathNode = new boolean[1001];
         dist_from_source = new double[1001];
