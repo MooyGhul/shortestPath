@@ -14,7 +14,7 @@ public class Astar {
     //distance used to store the distance of vertex from a source
     double[] dist_from_source;
 
-
+    int visitedNodeCounter=1;
 
 
     double visit(Graph graph, Graph_Node source, Graph_Node dest){
@@ -62,6 +62,7 @@ public class Astar {
                 if (pathNode[num_node] != true && visitedNode[num_node]!= true) {
                     visitedNode[num_node]= true;
 
+
                     double the_dist = Tool.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
 
                     dist_from_source[num_node]=the_dist;
@@ -73,11 +74,8 @@ public class Astar {
                     nodes[num_node].setPath((new StringBuilder(curr_pair.getNode().getPath())).append(Integer.toString(num_node) + "-->"));
                     Pair<Graph_Node,Double> newPair = new Pair<>(nodes[num_node],overall_distance);
                     pq.insert(newPair);
+                    visitedNodeCounter++;
                 }else if(pathNode[num_node] != true){
-
-                    if(index_curr==388) {
-                        System.out.println("visitedNode[num_node]== true");
-                    }
 
                     double the_dist = Tool.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
                     if (the_dist<dist_from_source[num_node]){

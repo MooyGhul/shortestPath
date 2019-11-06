@@ -11,6 +11,8 @@ public class Dijkastra {
     //distance used to store the distance of vertex from a source
     double[] dist_from_source;
 
+    int visitedNodeCounter=1;
+
     double visit(Graph graph, Graph_Node source, Graph_Node target){
         visitedNode = new boolean[1001];
         dist_from_source = new double[1001];
@@ -35,6 +37,7 @@ public class Dijkastra {
             Pair<Graph_Node,Double> curr = pq.remove();
             Graph_Node currNode = curr.getNode();
             visitedNode[currNode.getIndex()] = true;
+
 
             if(currNode.getIndex()==target.getIndex()){
                 int pathlength = currNode.getPath().length();
@@ -61,6 +64,7 @@ public class Dijkastra {
                         if(first_visit ==true){
                             nodes[num_node].setPath((new StringBuilder(currNode.getPath())).append(Integer.toString(num_node) + "-->"));
                             pq.insert(newPair);
+                            visitedNodeCounter++;
                         }else{
                             nodes[num_node].setPath((new StringBuilder(currNode.getPath())).append(Integer.toString(num_node) + "-->"));
                             pq.update(newPair.getNode().getIndex(),newPair.getDistance());

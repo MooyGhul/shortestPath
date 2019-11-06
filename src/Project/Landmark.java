@@ -54,10 +54,14 @@ public class Landmark {
     }
 
     double cal_distance(Graph_Node g1, Graph_Node g2){
-        double len_1 = Math.abs(z1[1]-z1[2]);
-        double len_2 = Math.abs(z2[1]-z2[2]);
-        double len_3 = Math.abs(z3[1]-z3[2]);
-        double len_4 = Math.abs(z4[1]-z4[2]);
+
+        int ind_1=g1.getIndex();
+        int ind_2=g2.getIndex();
+
+        double len_1 = Math.abs(z1[ind_1]-z1[ind_2]);
+        double len_2 = Math.abs(z2[ind_1]-z2[ind_2]);
+        double len_3 = Math.abs(z3[ind_1]-z3[ind_2]);
+        double len_4 = Math.abs(z4[ind_1]-z4[ind_2]);
 
         double max = Math.max(Math.max(len_1,len_2) , Math.max(len_3,len_4));
         return max;

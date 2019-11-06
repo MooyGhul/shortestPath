@@ -11,6 +11,7 @@ public class AStarWithLandmark {
     boolean[] pathNode;
     boolean[] visitedNode;
     double[] dist_from_source;
+    int visitedNodeCounter=1;
 
     double visit(Graph graph, Graph_Node source, Graph_Node dest){
         Landmark landmark = new Landmark(graph.nodes);
@@ -18,6 +19,7 @@ public class AStarWithLandmark {
         pathNode = new boolean[1001];
         dist_from_source = new double[1001];
         visitedNode = new boolean[1001];
+
         Graph_Node[] nodes = graph.getNodes();
 
         for(int i =1;i<=1000;i++){
@@ -58,6 +60,7 @@ public class AStarWithLandmark {
                 if (pathNode[num_node] != true && visitedNode[num_node]!= true) {
                     visitedNode[num_node]= true;
 
+
                     double the_dist = Tool.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
 
                     dist_from_source[num_node]=the_dist;
@@ -69,6 +72,7 @@ public class AStarWithLandmark {
                     nodes[num_node].setPath((new StringBuilder(curr_pair.getNode().getPath())).append(Integer.toString(num_node) + "-->"));
                     Pair<Graph_Node,Double> newPair = new Pair<>(nodes[num_node],overall_distance);
                     pq.insert(newPair);
+                    visitedNodeCounter++;
                 }else if(pathNode[num_node] != true){
 
                     double the_dist = Tool.cal_distance(currNode, nodes[num_node]) + dist_from_source[currNode.getIndex()];
