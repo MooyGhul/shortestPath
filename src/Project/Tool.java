@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public class Tool {
 
-    static DecimalFormat df2 = new DecimalFormat("#.######");
+    //static DecimalFormat df2 = new DecimalFormat("#.######");
 
     static double cal_distance(Graph_Node g1, Graph_Node g2){
         double dlat = 2 * Math.PI * (g2.getLat() - g1.getLat()) / 360.0;

@@ -39,6 +39,7 @@ public class Execution {
                 Graph_Node source = graph.getNodes()[(int)(Math.random()*1000+1)];
                 Graph_Node target = graph.getNodes()[(int)(Math.random()*1000+1)];
 
+
                 Dijkastra dijkastra= new Dijkastra();
                 double d_shortestPath = dijkastra.visit(graph,source,target);
                 Astar astar = new Astar();
@@ -47,6 +48,10 @@ public class Execution {
                 double l_shortestPath = alandmark.visit(graph,source,target);
 
                 System.out.println("Round "+ i +" is "+ ((d_shortestPath==a_shortestPath)==(a_shortestPath==l_shortestPath)) );
+
+                System.out.println("Dijkastra visited: "+dijkastra.visitedNodeCounter + " , Astar visited: "+astar.visitedNodeCounter +" , LandMark Visited "+alandmark.visitedNodeCounter);
+                // why i cannot push it to github
+
             }
 
 
